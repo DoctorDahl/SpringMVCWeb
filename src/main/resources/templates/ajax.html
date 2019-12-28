@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demonstrating jQuery - AJAX</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
+</head>
+<body>
+
+<h1>Demonstrating jQuery - AJAX</h1>
+
+
+
+<hr>
+
+
+
+<div class="introduction">
+    <p>This tag is being appended through the use of jQuery's append method.</p>
+</div>
+
+<script>
+    const person = {
+        name: "Douglas Adams",
+        age: 42
+    };
+    const about = "Hi my name is " + person.name + ", and I am " + person.age + " years old.";
+
+    $(".introduction").append("<p>" + about + "</p>");
+</script>
+
+
+
+<hr>
+
+
+
+<div>
+    <p>Using jQuery - AJAX to contact the api "https://api.chucknorris.io".</p>
+    <p>Recieving a random Chuck Norris joke every 10 seconds:</p>
+    <p class="joke-paragraph"></p>
+</div>
+
+<script>
+    // Method for resetting the Chuck Norris joke
+    function getChuckNorrisJoke() {
+        $.get("https://api.chucknorris.io/jokes/random", function response(data) {
+            $(".joke-paragraph")
+                .empty() // Clear old text
+                .text(data.value); // Set new text
+        });
+    }
+
+    getChuckNorrisJoke();
+
+    // Looping every 10 seconds
+    setInterval(function timeOut() {
+        getChuckNorrisJoke();
+    }, 10000)
+</script>
+
+
+
+<hr>
+
+
+
+<div>
+    <p>Using jQuery - AJAX to contact the api "https://api.nasa.gov".</p>
+</div>
+
+<div class="nasaImg"></div>
+
+<script>
+    const imgTagStart = "<img width=600px src='";
+    const imgTagEnd = "'/>";
+
+    // AJAX GET request to api
+    $.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", function response(data) {
+        // Appending class "nasaImg" with "data.url" using jQuery
+        $(".nasaImg").append(imgTagStart + data.url + imgTagEnd);
+    });
+</script>
+
+
+
+
+</body>
+</html>
