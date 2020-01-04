@@ -2,6 +2,7 @@
 Spring er et applikationsframework til Java platformen, og er bygget efter koncepterne med "Inversion of Control" og "Dependency Injection"\
 IoC; "Når X sker - så gør Y". (Eks. Når der trykkes "Godkend" - så skrives der til databasen).\
 DI; "Giv klasser instanser af deres dependencies i stedet for at de selv skal instantiere dem."
+//TODO - FIND EKSEMPEL?
 
 Spring er således meget velegnet til udvikling af web-applikationer.\
 Desuden er Spring pakket med en masse indbygget funktionalitet, som udvikleren hurtigt kan drage nytte af ved at bruge de indbyggede annotationer.
@@ -31,17 +32,19 @@ I Spring MVC er det klassen `DispatcherServlet` der fungerer som Front Controlle
 - Separate Roller: Klassernes opgaver er tydeligt opdelt. Således er det langt nemmere at holde overblik, og lave specialiserede objekter til hver opgave.
 - Hurtigere udvikling: Det at alting er så tydeligt opdelt faciliterer hurtig og parallel udvikling.
 
-
 #Thymeleaf
 Thymeleaf er en Java template engine, der kan arbejde med HTML, XML, text, JavaScript og CSS filer.\
 Det benyttes til dynamisk at kunne sætte indholdet af siderne alt efter informationer i resten af systemet.\
-Der skal blot gives et `Model`-objekt med, og så kan man, med Thymeleaf, tilgå objektets attributter fra eksempelvis HTML eller JavaScript filen. 
+Der skal blot gives et `Model`-objekt med, og så kan man, med Thymeleaf, tilgå objektet og dets attributter fra eksempelvis HTML eller JavaScript filen. 
+Thymeleaf giver mulighed for at have variabler og logic i HTML koden.
 
 #jQuery - AJAX
 jQuery er et JavaScript library, der gør en håndfuld ting meget lettere at håndtere.\
-Ting som f.eks. HTML/DOM og CSS manipulation, HTML eventhåndtering og AJAX kald.
+Ting som f.eks. HTML/DOM og CSS manipulation, HTML eventhåndtering og AJAX kald.\
+DOM = Document Object Model.
 
 AJAX = Asynchronous JavaScript and XML.\
 AJAX omhandler loading og visning af data uden at hele siden behøver at blive opdateret.
 
 For eksempler på POST-requests se GoatGrindr - ressources/static/js/MainPage.js - l. 347-386
+//TODO - Smid koden ind her

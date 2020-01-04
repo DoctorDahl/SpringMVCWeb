@@ -21,11 +21,11 @@
 </div>
 
 <script>
-    const person = {
+    var person = {
         name: "Douglas Adams",
         age: 42
     };
-    const about = "Hi my name is " + person.name + ", and I am " + person.age + " years old.";
+    var about = "Hi my name is " + person.name + ", and I am " + person.age + " years old.";
 
     $(".introduction").append("<p>" + about + "</p>");
 </script>
@@ -37,26 +37,28 @@
 
 
 <div>
-    <p>Using jQuery - AJAX to contact the api "https://api.chucknorris.io".</p>
-    <p>Recieving a random Chuck Norris joke every 10 seconds:</p>
-    <p class="joke-paragraph"></p>
+    <p>Using jQuery - AJAX to contact the api "http://numbersapi.com/".</p>
+    <p>Recieving trivia about a random year every 10 seconds.</p>
+    <p class="trivia-paragraph"></p>
 </div>
 
 <script>
-    // Method for resetting the Chuck Norris joke
-    function getChuckNorrisJoke() {
-        $.get("https://api.chucknorris.io/jokes/random", function response(data) {
-            $(".joke-paragraph")
+    // Method for resetting the number trivia
+    function getRandomNumberTrivia() {
+        // AJAX get method
+        $.get("http://numbersapi.com/random/year", function response(data) {
+            // Using jQuery to clear and set new text
+            $(".trivia-paragraph")
                 .empty() // Clear old text
-                .text(data.value); // Set new text
+                .text(data); // Set new text
         });
     }
 
-    getChuckNorrisJoke();
+    getRandomNumberTrivia();
 
     // Looping every 10 seconds
     setInterval(function timeOut() {
-        getChuckNorrisJoke();
+        getRandomNumberTrivia();
     }, 10000)
 </script>
 
@@ -67,14 +69,14 @@
 
 
 <div>
-    <p>Using jQuery - AJAX to contact the api "https://api.nasa.gov".</p>
+    <p>Using jQuery - AJAX to contact the api "https://api.nasa.gov" for their "Astronomy Picture of the Day"</p>
 </div>
 
 <div class="nasaImg"></div>
 
 <script>
-    const imgTagStart = "<img width=600px src='";
-    const imgTagEnd = "'/>";
+    var imgTagStart = "<img width=600px src='"; //Inline CSS width
+    var imgTagEnd = "'/>";
 
     // AJAX GET request to api
     $.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", function response(data) {

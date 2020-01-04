@@ -9,6 +9,7 @@
 <h1>Demonstrating Thymeleaf</h1>
 <p>On this page all information is being read from a "Student"-object by Thymeleaf.</p>
 
+<!-- Using a link URL expression surrounding the variable expression -->
 <img th:src="@{${student.getImageURL()}}">
 <p>
     ID: <span th:text="${student.getId()}"></span>
